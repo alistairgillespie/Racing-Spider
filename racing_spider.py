@@ -1,12 +1,12 @@
 import scrapy
 
+
 class RacingItem(scrapy.Item):
     fin = scrapy.Field()
     runner = scrapy.Field()
 
 
 class RacingSpider(scrapy.Spider):
-    name = 'racing'
     name = 'racenet.com.au'
     allowed_domains = ['racenet.com.au']
     start_urls = ['https://www.racenet.com.au/horse-racing-results/Albury/2016-03-17']
@@ -20,6 +20,7 @@ class RacingSpider(scrapy.Spider):
 			item['runner'] = row.xpath('td[3]/text()').extract()
 			yield item
 	        
+
         
 
         
