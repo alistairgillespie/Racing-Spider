@@ -1,8 +1,9 @@
 import scrapy
 
 class RacingItem(scrapy.Item):
-    fin = scrapy.Field()
     runner = scrapy.Field()
+    name = scrapy.Field()
+    fin = scrapy.Field()
 
 
 class RacingSpider(scrapy.Spider):
@@ -16,11 +17,7 @@ class RacingSpider(scrapy.Spider):
 		    rows = response.xpath('.//tr[@class="tr_full_res_runner"]')
 		    for row in rows:
 		        item = RacingItem()
-			item['fin'] = row.xpath('.//td[@class="first"]').extract()
-			item['runner'] = row.xpath('td[3]/text()').extract()
+			item['fin'] = row.xpath('.//td[@class="first"]/text()').extract()
+			item['runner'] = row.xpath('.//td[3]/a/text()').extract()
+			item['number'] = row.xpath('.//td[3]/text()').extract()
 			yield item
-	        
-
-        
-
-        
