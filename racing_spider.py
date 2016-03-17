@@ -1,7 +1,7 @@
 import scrapy
 
 class RacingItem(scrapy.Item):
-    runner = scrapy.Field()
+    number = scrapy.Field()
     name = scrapy.Field()
     fin = scrapy.Field()
 
