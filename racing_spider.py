@@ -1,9 +1,9 @@
 import scrapy
 
 class RacingItem(scrapy.Item):
-    number = scrapy.Field()
-    name = scrapy.Field()
     fin = scrapy.Field()
+    runner = scrapy.Field()
+    number = scrapy.Field()
 
 
 class RacingSpider(scrapy.Spider):
